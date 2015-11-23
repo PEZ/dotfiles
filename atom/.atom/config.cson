@@ -1,0 +1,26 @@
+"*":
+  "exception-reporting":
+    userId: "c6cd5418-bc86-b038-81c8-d5ea17d973de"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "980db9c0c075f625d15ef97745820f6aeebc6f75"
+  editor:
+    invisibles: {}
+    fontSize: 12
+    softWrap: true
+    tabLength: 4
+    showInvisibles: true
+    showIndentGuide: true
+  core:
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+  "remote-atom":
+    launch_at_startup: true
+  atomatigit: {}
+  "linter-eslint":
+    eslintRulesDir: "."
+  Termrk:
+    fontSize: "12 px"
