@@ -9,6 +9,7 @@
 /atom/.atom/*
 # Except these
 !/atom/.atom/config.cson
+!/atom/.atom/packages.cson
 !/atom/.atom/init.coffee
 !/atom/.atom/keymap.cson
 !/atom/.atom/snippets.cson
