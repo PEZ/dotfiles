@@ -5,3 +5,6 @@ fi
 
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
+alias emax=/Applications/Emacs.app/Contents/MacOS/Emacs
