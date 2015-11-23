@@ -14,8 +14,8 @@
     showIndentGuide: true
   core:
     themes: [
-      "atom-light-ui"
-      "atom-light-syntax"
+      "atom-dark-ui"
+      "atom-dark-syntax"
     ]
   "remote-atom":
     launch_at_startup: true
@@ -24,3 +24,4 @@
     eslintRulesDir: "."
   Termrk:
     fontSize: "12 px"
+  "one-dark-ui": {}
