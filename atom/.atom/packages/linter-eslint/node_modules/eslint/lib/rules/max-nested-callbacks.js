@@ -16,7 +16,7 @@ module.exports = function(context) {
     // Constants
     //--------------------------------------------------------------------------
 
-    var THRESHOLD = context.options[0];
+    var THRESHOLD = context.options[0] || 10;
 
     //--------------------------------------------------------------------------
     // Helpers
@@ -65,3 +65,9 @@ module.exports = function(context) {
     };
 
 };
+
+module.exports.schema = [
+    {
+        "type": "integer"
+    }
+];

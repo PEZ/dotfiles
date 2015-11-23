@@ -46,6 +46,8 @@ class Session
                 @open_in_atom()
             else if @readbytes < @datasize
                 @readbytes += Buffer.byteLength(line)
+                if @readbytes > @datasize and line.slice(-1) is "\n"
+                    line = line.slice(0, -1)
                 fs.writeSync(@fd, line)
         else
             m = line.match /([a-z\-]+?)\s*:\s*(.*?)\s*$/
@@ -66,10 +68,11 @@ class Session
     open_in_atom: ->
         console.log "[ratom] opening #{@tempfile}"
         # register events
-        atom.workspace.open(@tempfile).then (editor) =>
+        atom.workspace.open(@tempfile, activatePane:true).then (editor) =>
             @handle_connection(editor)
 
     handle_connection: (editor) ->
+        atom.focus()
         buffer = editor.getBuffer()
         @subscriptions = new CompositeDisposable
         @subscriptions.add buffer.onDidSave(@save)

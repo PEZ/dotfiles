@@ -44,7 +44,12 @@ module.exports = function(context) {
                 return;
             }
 
-            if (node.value.type === "FunctionExpression" && APPLY_TO_METHODS) {
+            // getters, setters and computed properties are ignored
+            if (node.kind === "get" || node.kind === "set" || node.computed) {
+                return;
+            }
+
+            if (node.value.type === "FunctionExpression" && !node.value.id && APPLY_TO_METHODS) {
 
                 // {x: function(){}} should be written as {x() {}}
                 context.report(node, "Expected method shorthand.");
@@ -61,3 +66,9 @@ module.exports = function(context) {
     };
 
 };
+
+module.exports.schema = [
+    {
+        "enum": ["always", "methods", "properties", "never"]
+    }
+];

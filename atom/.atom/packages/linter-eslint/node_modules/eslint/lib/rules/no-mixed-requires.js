@@ -107,7 +107,7 @@ module.exports = function(context) {
     function isMixed(declarations) {
         var contains = {};
 
-        declarations.forEach(function (declaration) {
+        declarations.forEach(function(declaration) {
             var type = getDeclarationType(declaration.init);
             contains[type] = true;
         });
@@ -127,7 +127,7 @@ module.exports = function(context) {
     function isGrouped(declarations) {
         var found = {};
 
-        declarations.forEach(function (declaration) {
+        declarations.forEach(function(declaration) {
             if (getDeclarationType(declaration.init) === DECL_REQUIRE) {
                 found[inferModuleType(declaration.init)] = true;
             }
@@ -140,7 +140,13 @@ module.exports = function(context) {
     return {
 
         "VariableDeclaration": function(node) {
-            var grouping = !!context.options[0];
+            var grouping = false;
+
+            if (typeof context.options[0] === "object") {
+                grouping = context.options[0].grouping;
+            } else {
+                grouping = !!context.options[0];
+            }
 
             if (isMixed(node.declarations)) {
                 context.report(
@@ -157,3 +163,22 @@ module.exports = function(context) {
     };
 
 };
+
+module.exports.schema = [
+    {
+        "oneOf": [
+            {
+                "type": "boolean"
+            },
+            {
+                "type": "object",
+                "properties": {
+                    "grouping": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            }
+        ]
+    }
+];
