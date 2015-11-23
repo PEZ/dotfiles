@@ -3,3 +3,13 @@
 /vim/.vim/bundle/*
 # except Vundle itself
 !/vim/.vim/bundle/Vundle.vim
+
+## Atom
+# ignore everything
+/atom/.atom/*
+# Except these
+!/atom/.atom/config.cson
+!/atom/.atom/init.coffee
+!/atom/.atom/keymap.cson
+!/atom/.atom/snippets.cson
+!/atom/.atom/styles.less

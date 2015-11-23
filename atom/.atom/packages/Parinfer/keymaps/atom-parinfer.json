@@ -1,6 +1,0 @@
-{
-  "atom-workspace": {
-    "ctrl-(": "parinfer:toggleMode",
-    "ctrl-)": "parinfer:disable"
-  }
-}
