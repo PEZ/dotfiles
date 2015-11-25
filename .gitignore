@@ -1,3 +1,6 @@
+## vim
+/vim/.vim/.netrwhist
+
 ## vim Vundle
 # ignore everything
 /vim/.vim/bundle/*
@@ -14,3 +17,6 @@
 !/atom/.atom/keymap.cson
 !/atom/.atom/snippets.cson
 !/atom/.atom/styles.less
+
+## leinigen
+/leinigen/.lein/self-installs
