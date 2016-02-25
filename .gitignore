@@ -1,3 +1,8 @@
+## General
+# Ignore backup files
+*~
+*.swap
+
 ## vim
 /vim/.vim/.netrwhist
 
@@ -6,6 +11,11 @@
 /vim/.vim/bundle/*
 # except Vundle itself
 !/vim/.vim/bundle/Vundle.vim
+
+## Emacs
+# Ignore everything ELPA
+/emacs/.emacs.d/elpa
+
 
 ## Atom
 # ignore everything
