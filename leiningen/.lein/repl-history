@@ -1,0 +1,56 @@
+(defn f [s] (f (rest s)) (first s))
+(f [1 2 3])
+(defn f [s] (if s (f (rest s)) (first s)))
+(f [1 2 3])
+(defn f [s] (if (empty? s) '() (do (f (rest s)) (first s))))
+(f [1 2 3])
+(apply conj () [1 2 3])
+(apply conj [] [1 2 3])
+(into () [1 2 3])
+(into [] [1 2 3])
+  (fn [x]
+    (loop [fib 1
+           result []]  
+      (let [last-fib (last result)
+            result (conj result fib)]
+        (if (> x (count result))
+          (recur (+ last-fib fib) result)
+          result)))))
+(def fib   (fn [x]
+    (loop [fib 1
+           result []]  
+      (let [last-fib (last result)
+            result (conj result fib)]
+        (if (> x (count result))
+          (recur (+ last-fib fib) result)
+          result)))))
+(fib 3)
+(str  '(\r \a \c \e \c \a \r))
+(reverse "racecar")
+(into () "racecar")
+(into [] "racecar")
+(into [] '((((:a))))))
+(into [] '((((:a)))))
+(seq '((((:a)))))
+(take-while seq? '((((:a)))))
+(while seq? '((((:a)))))
+(iterate #(filter (not seq?)) (defn f [s] 
+  (let [r []]
+    ((fn f' [s r]
+       (if (seq? s)
+         (f' (into [] s r))
+         
+(iterate #(filter (not seq?)) '((a)))
+(use 'core.walk)
+(def f
+  (fn [s]
+    (loop [s s
+           result []]  
+      (if (empty? s)
+        result
+        (do (if (seq? (first s))
+              (recur (first s) result)
+              (recur (rest s) (conj result (first s))))
+            (if (seq? (rest s))
+              (recur (rest s) result)
+              (recur () (conj result (rest s)))))))))
